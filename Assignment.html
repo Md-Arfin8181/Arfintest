@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myController">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+<script src="script.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Open Sans;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+body {
+ 
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px;
+}
+
+.logo {
+width:15%;
+}
+
+.logopanel {
+   image-rendering: pixelated;
+   width: 35%;
+}
+.mainimg {
+    width: 75%;
+    float: right;
+    height: 200px;
+ image-rendering: pixelated;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.dot {
+  display: none;
+}
+.prev {
+  display: none;
+}
+
+.next {
+  display: none;
+}
+.aligntbl {
+padding: 50px;
+
+}
+.aligntbl1{
+display:none;
+}
+@media only screen and (max-width: 767px)  {
+ * {
+    box-sizing: border-box;
+    font-family: Open Sans;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.column {
+    width: 100%;
+    float: none;
+    padding: 10px;
+    height: 600px;
+}
+.aligntbl {
+display:none;
+
+}
+.aligntbl1{
+display:block;
+text-align: center;
+}
+.mainimg {
+   width: 80%;
+    padding-right: 80px;
+    height: 350px;
+ image-rendering: pixelated;
+}
+
+.logopanel {
+    width: 15%;
+ image-rendering: pixelated;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 5px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  display: block;
+}
+
+
+.next {
+  display: block;
+
+  right: 0;
+  border-radius: 1px 0 0 1px;
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 10px 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="row slideshow-container">
+  <div class="column mySlides fade" style="background-color:#41ca6e;">
+    <img class="logo" ng-src="{{logo | trusted}}" />
+    <div class="row aligntbl">
+<table><tr><td><img class="logopanel" ng-src="{{sec_logo | trusted}}" />
+         <p style="color:#fff;">Astonishing <br> features requires <br> worry-free security</p><hr><p style="color:#fff;">{{sec_desc}}</p></td><td><img class="mainimg" ng-src="{{sec_img | trusted}}"/></td></tr></table>
+                
+    </div>
+       <div class="aligntbl1" style="background-color:#41ca6e;">
+<img class="logopanel" ng-src="{{sec_logo | trusted}}" />
+ <p style="color:#fff;">Astonishing <br> features requires <br> worry-free security</p><hr><p style="color:#fff;">{{sec_desc}}</p>
+<img class="mainimg" ng-src="{{sec_img | trusted}}"/>
+</div>
+     
+  </div>
+  <div class="column mySlides fade" style="background-color:#fab153;">
+ <div class="row aligntbl">
+<table><tr><td><img class="logopanel" ng-src="{{D_logo | trusted}}" />
+         <p style="color:#fff;">Be hooked!</p><hr><p style="color:#fff;">{{D_desc}}</p></td><td><img class="mainimg" ng-src="{{D_img | trusted}}" /></td></tr></table>
+                
+    </div>  
+<div class="aligntbl1" style="background-color:#fab153;">
+<img class="logopanel" ng-src="{{D_logo | trusted}}" />
+ <p style="color:#fff;">Be hooked!</p><hr><p style="color:#fff;">{{D_desc}}</p>
+<img class="mainimg" ng-src="{{D_img | trusted}}" />
+</div>   
+  </div>
+  <div class="column mySlides fade" style="background-color:#7277d5;">
+<div class="row aligntbl">
+<table><tr><td><img class="logopanel" ng-src="{{Adaptxt_logo | trusted}}" />
+         <p style="color:#fff;">The best things in <br> life are free</p><hr><p style="color:#fff;">{{Adaptxt_desc}}</p></td><td><br><img class="mainimg" ng-src="{{Adaptxt_img | trusted}}" /></td></tr></table>
+                
+    </div>   
+<div class="aligntbl1" style="background-color:#7277d5;">
+<img class="logopanel" ng-src="{{Adaptxt_logo | trusted}}" />
+   <p style="color:#fff;">The best things in <br> life are free</p><hr><p style="color:#fff;">{{Adaptxt_desc}}</p>
+<img class="mainimg" ng-src="{{Adaptxt_img | trusted}}" />
+</div>           
+  </div>
+
+<div class="column mySlides fade" style="background-color:#f87d51;">
+<div class="row aligntbl">
+<table><tr><td><img class="logopanel" ng-src="{{Hungama_logo | trusted}}" />
+         <p style="color:#fff;">The thump <br> never ends here</p><hr><p style="color:#fff;">{{Hungama_desc}}</p></td><td><img class="mainimg" ng-src="{{Hungama_img | trusted}}" /></td></tr></table>
+                
+    </div>  
+     <div class="aligntbl1" style="background-color:#f87d51;">
+<img class="logopanel" ng-src="{{Hungama_logo | trusted}}" />
+   <p style="color:#fff;">The thump <br> never ends here</p><hr><p style="color:#fff;">{{Hungama_desc}}</p>
+<img class="mainimg" ng-src="{{Hungama_img | trusted}}" />
+</div>  
+     
+  </div>
+  <div class="column mySlides fade" style="background-color:#ed5466;">
+<div class="row aligntbl">
+<table><tr><td><img class="logopanel" ng-src="{{adap_logo | trusted}}" />
+         <p style="color:#fff;">Being globally you</p><hr><p style="color:#fff;">{{adap_desc}}</p></td><td><img class="mainimg" ng-src="{{adap_img | trusted}}" /></td></tr></table>
+                
+    </div>  
+     <div class="aligntbl1" style="background-color:#ed5466;">
+<img class="logopanel" ng-src="{{adap_logo | trusted}}" />
+   <p style="color:#fff;">Being globally you</p><hr><p style="color:#fff;">{{adap_desc}}</p>
+<img class="mainimg" ng-src="{{adap_img | trusted}}" />
+</div>  
+     
+  </div>
+  <div class="column mySlides fade" style="background-color:#4ec2e7;">
+<div class="row aligntbl">
+<table><tr><td> <img class="logopanel" ng-src="{{readwhere_logo | trusted}}" />
+         <p style="color:#fff;">For the wise</p><hr><p style="color:#fff;">{{readwhere_desc}}</p></td><td><img class="mainimg" ng-src="{{readwhere_img | trusted}}" /></td></tr></table>
+                
+    </div>  
+    <div class="aligntbl1" style="background-color:#4ec2e7;">
+<img class="logopanel" ng-src="{{readwhere_logo | trusted}}" />
+  <p style="color:#fff;">For the wise</p><hr><p style="color:#fff;">{{readwhere_desc}}</p>
+<img class="mainimg" ng-src="{{readwhere_img | trusted}}" />
+</div>  
+     
+  </div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+</div>
+
+
+</body>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if ($(window).width() < 767) {
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  }
+}
+</script>
+
+</html>
+
